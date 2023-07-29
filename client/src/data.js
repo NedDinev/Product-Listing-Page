@@ -225,11 +225,11 @@ export const data = {
     {
       _id: "23",
       image: "/images/p23.jpg",
-      name: "SILVER CHOKER NECKLACE",
-      description: "Chic silver choker necklace with a minimalist design",
+      name: "GOLD CHOKER NECKLACE",
+      description: "Chic gold choker necklace with a minimalist design",
       price: 600,
       rating: 4.3,
-      slug: "silver-choker-necklace",
+      slug: "gold-choker-necklace",
       category: "necklaces",
     },
     {
@@ -305,11 +305,11 @@ export const data = {
     {
       _id: "31",
       image: "/images/p31.jpg",
-      name: "SILVER LAYERED NECKLACE",
-      description: "Layered silver necklace with multiple chains",
+      name: "GOLD LAYERED NECKLACE",
+      description: "Layered gold necklace with multiple chains",
       price: 800,
       rating: 4.4,
-      slug: "silver-layered-necklace",
+      slug: "gold-layered-necklace",
       category: "necklaces",
     },
     {
