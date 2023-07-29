@@ -9,6 +9,7 @@ export const data = {
       price: 2000,
       rating: 4.5,
       slug: "divas-dream-earrings",
+      quantity: 5,
       category: "earrings",
     },
     {
@@ -19,6 +20,7 @@ export const data = {
       price: 1500,
       rating: 4.8,
       slug: "glamourous-ring",
+      quantity: 2,
       category: "rings",
     },
     {
@@ -29,6 +31,7 @@ export const data = {
       price: 1800,
       rating: 4.2,
       slug: "elegant-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -39,6 +42,7 @@ export const data = {
       price: 1200,
       rating: 4.6,
       slug: "classic-bracelet",
+      quantity: 2,
       category: "bracelets",
     },
     {
@@ -49,6 +53,7 @@ export const data = {
       price: 800,
       rating: 4.3,
       slug: "silver-hoop-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -59,6 +64,7 @@ export const data = {
       price: 3000,
       rating: 4.9,
       slug: "sapphire-engagement-ring",
+      quantity: 5,
       category: "rings",
     },
     {
@@ -69,6 +75,7 @@ export const data = {
       price: 1600,
       rating: 4.1,
       slug: "pearl-pendant-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -79,6 +86,7 @@ export const data = {
       price: 2500,
       rating: 4.7,
       slug: "diamond-bangle-bracelet",
+      quantity: 0,
       category: "bracelets",
     },
     {
@@ -89,6 +97,7 @@ export const data = {
       price: 1200,
       rating: 4.4,
       slug: "emerald-stud-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -99,6 +108,7 @@ export const data = {
       price: 1000,
       rating: 4.5,
       slug: "rose-gold-wedding-band",
+      quantity: 3,
       category: "rings",
     },
     {
@@ -109,6 +119,7 @@ export const data = {
       price: 800,
       rating: 4.2,
       slug: "silver-charm-necklace",
+      quantity: 11,
       category: "necklaces",
     },
     {
@@ -119,6 +130,7 @@ export const data = {
       price: 600,
       rating: 4.0,
       slug: "rose-wrap-bracelet",
+      quantity: 7,
       category: "bracelets",
     },
     {
@@ -129,6 +141,7 @@ export const data = {
       price: 950,
       rating: 4.6,
       slug: "golden-hoop-earrings",
+      quantity: 7,
       category: "earrings",
     },
     {
@@ -139,6 +152,7 @@ export const data = {
       price: 2800,
       rating: 4.9,
       slug: "diamond-halo-ring",
+      quantity: 7,
       category: "rings",
     },
     {
@@ -149,6 +163,7 @@ export const data = {
       price: 750,
       rating: 4.3,
       slug: "heart-shaped-locket",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -159,6 +174,7 @@ export const data = {
       price: 500,
       rating: 4.1,
       slug: "beaded-stretch-bracelet",
+      quantity: 0,
       category: "bracelets",
     },
     {
@@ -169,6 +185,7 @@ export const data = {
       price: 1100,
       rating: 4.4,
       slug: "pearl-drop-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -179,6 +196,7 @@ export const data = {
       price: 4500,
       rating: 4.8,
       slug: "platinum-engagement-ring",
+      quantity: 10,
       category: "rings",
     },
 
@@ -190,6 +208,7 @@ export const data = {
       price: 850,
       rating: 4.6,
       slug: "dainty-initial-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -200,6 +219,7 @@ export const data = {
       price: 700,
       rating: 4.2,
       slug: "engraved-cuff-bracelet",
+      quantity: 10,
       category: "bracelets",
     },
     {
@@ -210,6 +230,7 @@ export const data = {
       price: 2000,
       rating: 4.9,
       slug: "diamond-stud-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -220,6 +241,7 @@ export const data = {
       price: 1800,
       rating: 4.7,
       slug: "vintage-sapphire-ring",
+      quantity: 0,
       category: "rings",
     },
     {
@@ -230,6 +252,7 @@ export const data = {
       price: 600,
       rating: 4.3,
       slug: "gold-choker-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -240,6 +263,7 @@ export const data = {
       price: 550,
       rating: 4.0,
       slug: "metal-bracelet",
+      quantity: 10,
       category: "bracelets",
     },
     {
@@ -250,6 +274,7 @@ export const data = {
       price: 1000,
       rating: 4.5,
       slug: "hoop-earrings-set",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -260,6 +285,7 @@ export const data = {
       price: 850,
       rating: 4.2,
       slug: "rose-gold-stackable-rings",
+      quantity: 0,
       category: "rings",
     },
     {
@@ -270,6 +296,7 @@ export const data = {
       price: 700,
       rating: 4.6,
       slug: "pendant-necklace-with-tassel",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -280,6 +307,7 @@ export const data = {
       price: 450,
       rating: 4.1,
       slug: "bohemian-beaded-bracelet",
+      quantity: 10,
       category: "bracelets",
     },
     {
@@ -290,6 +318,7 @@ export const data = {
       price: 1400,
       rating: 4.7,
       slug: "diamond-drop-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -300,6 +329,7 @@ export const data = {
       price: 2200,
       rating: 4.8,
       slug: "art-deco-cocktail-ring",
+      quantity: 10,
       category: "rings",
     },
     {
@@ -310,6 +340,7 @@ export const data = {
       price: 800,
       rating: 4.4,
       slug: "gold-layered-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -320,6 +351,7 @@ export const data = {
       price: 650,
       rating: 4.3,
       slug: "enamel-bangle-bracelet",
+      quantity: 10,
       category: "bracelets",
     },
     {
@@ -330,6 +362,7 @@ export const data = {
       price: 900,
       rating: 4.5,
       slug: "gold-teardrop-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -340,6 +373,7 @@ export const data = {
       price: 3500,
       rating: 4.9,
       slug: "halo-diamond-engagement-ring",
+      quantity: 10,
       category: "rings",
     },
     {
@@ -350,6 +384,7 @@ export const data = {
       price: 1100,
       rating: 4.3,
       slug: "cross-pendant-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -360,6 +395,7 @@ export const data = {
       price: 500,
       rating: 4.0,
       slug: "gold-chain-bracelet",
+      quantity: 10,
       category: "bracelets",
     },
     {
@@ -370,6 +406,7 @@ export const data = {
       price: 1200,
       rating: 4.6,
       slug: "pearl-and-diamond-earrings",
+      quantity: 10,
       category: "earrings",
     },
     {
@@ -380,6 +417,7 @@ export const data = {
       price: 2800,
       rating: 4.8,
       slug: "diamond-eternity-band",
+      quantity: 10,
       category: "rings",
     },
     {
@@ -390,6 +428,7 @@ export const data = {
       price: 700,
       rating: 4.4,
       slug: "enamel-charm-necklace",
+      quantity: 10,
       category: "necklaces",
     },
     {
@@ -400,6 +439,7 @@ export const data = {
       price: 550,
       rating: 4.1,
       slug: "braided-silver-bracelet",
+      quantity: 10,
       category: "bracelets",
     },
   ],
