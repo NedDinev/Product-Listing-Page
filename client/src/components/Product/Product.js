@@ -21,14 +21,18 @@ export default function Product(props) {
         <Card.Text className="mb-3 card-description">
           {product.description}
         </Card.Text>
-        <Card.Text className="mb-3">${product.price}</Card.Text>
-        {!isOutOfStock && (
+        {product.discount ? (
+          <Card.Text className="mb-3 discount ">${product.price}</Card.Text>
+        ) : (
+          <Card.Text className="mb-3">${product.price}</Card.Text>
+        )}
+
+        {isOutOfStock ? (
+          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+        ) : (
           <Button variant="light" disabled>
             Out of stock
           </Button>
-        )}
-        {isOutOfStock && (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
         )}
       </Card.Body>
     </Card>

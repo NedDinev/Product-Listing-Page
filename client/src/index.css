@@ -18,3 +18,12 @@ main {
 .card-description {
   height: 80px;
 }
+
+.logo {
+  width: 110px;
+  height: 93px;
+}
+
+.discount {
+  color: #ff0058;
+}
