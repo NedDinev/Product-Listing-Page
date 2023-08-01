@@ -20,14 +20,14 @@ export default function NavigationBar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto w-100 justify-content-end ">
-            {categories.map((category) => (
+            {categories.map((currentCategory) => (
               <Nav.Item
-                key={category}
+                key={currentCategory}
                 as={Link}
-                to={`/${category}`}
+                to={`/category/${currentCategory}`}
                 className="nav-link text-center"
               >
-                {category.toUpperCase()}
+                {currentCategory.toUpperCase()}
               </Nav.Item>
             ))}
           </Nav>
