@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Col, Row, Form } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Product from "../Product/Product";
 import capitalizeFirstLetter from "../../Utils/textFormat";
+import SortingOption from "../SortingOptions/SortingOption";
 
 export default function ProductList(props) {
   const { currentCategory, data } = props;
@@ -40,24 +41,14 @@ export default function ProductList(props) {
       <Col md={9}>
         <>
           <Row className="justify-content-between mb-3">
-            <Col md={6}>
+            <Col md={6} sm={6}>
               <h2>{capitalizeFirstLetter(currentCategory)}</h2>
             </Col>
-            <Col md={3} className="text-end">
-              <Form.Group controlId="sortingOption">
-                <Form.Label>Sort by:</Form.Label>
-                <Form.Control
-                  as="select"
-                  value={sortingOption}
-                  onChange={handleSortingOptionChange}
-                >
-                  <option value="Default">Default</option>
-                  <option value="Alphabetical a-z">Alphabetical a-z</option>
-                  <option value="Alphabetical z-a">Alphabetical z-a</option>
-                  <option value="Price ascending">Price ascending</option>
-                  <option value="Price descending">Price descending</option>
-                </Form.Control>
-              </Form.Group>
+            <Col md={3} sm={3} className="justify-content-end">
+              <SortingOption
+                sortProducts={sortProducts}
+                handleSortingOptionChange={handleSortingOptionChange}
+              />
             </Col>
           </Row>
           <Row>
