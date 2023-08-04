@@ -1,20 +1,47 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Product from "../Product/Product";
-import capitalizeFirstLetter from "../../Utils/textFormat";
-import SortingOption from "../SortingOptions/SortingOption";
+import {
+  findHighestProductPrice,
+  findLowestProductPrice,
+} from "../../Utils/productsUtils";
+import Sort from "../Sort/Sort";
+import Filter from "../Filter/Filter";
 
 export default function ProductList(props) {
-  const { currentCategory, data } = props;
-
   const [sortingOption, setSortingOption] = useState("Default");
+  const [materialFilters, setMaterialFilters] = useState({
+    Gold: false,
+    Silver: false,
+    Diamond: false,
+    RoseGold: false,
+  });
 
+  const { currentCategory, data } = props;
   const productsInCurrentCategory = data.products.filter(
     (product) => product.category === currentCategory
   );
 
+  const highestProductPrice = findHighestProductPrice(
+    productsInCurrentCategory
+  );
+  const lowestProductPrice = findLowestProductPrice(productsInCurrentCategory);
+  const [maxPrice, setMaxPrice] = useState(highestProductPrice);
+
   const handleSortingOptionChange = (event) => {
     setSortingOption(event.target.value);
+  };
+
+  const handleMaterialFilterChange = (event) => {
+    const { name, checked } = event.target;
+    setMaterialFilters((prevFilters) => ({
+      ...prevFilters,
+      [name]: checked,
+    }));
+  };
+
+  const handleMaxPriceChange = (newValue) => {
+    setMaxPrice(parseInt(newValue, 10));
   };
 
   const sortProducts = (products) => {
@@ -33,32 +60,50 @@ export default function ProductList(props) {
     }
   };
 
+  const filterProducts = (products) => {
+    return products.filter((product) => {
+      const isMaterialMatch =
+        materialFilters[product.material] || // If any material checkbox is selected
+        Object.values(materialFilters).every((value) => !value); // If no material checkbox is selected
+
+      const isPriceInRange = product.price <= maxPrice;
+
+      return isMaterialMatch && isPriceInRange;
+    });
+  };
+
+  useEffect(() => {
+    setMaxPrice(highestProductPrice);
+  }, [currentCategory, highestProductPrice]);
+
   const sortedProducts = sortProducts(productsInCurrentCategory);
+  const filteredProducts = filterProducts(sortedProducts);
 
   return (
     <Row>
-      <Col md={3}></Col>
+      <Col md={3}>
+        <Filter
+          materialFilters={materialFilters}
+          handleMaterialFilterChange={handleMaterialFilterChange}
+          lowestProductPrice={lowestProductPrice}
+          highestProductPrice={highestProductPrice}
+          maxPrice={maxPrice}
+          handleMaxPriceChange={handleMaxPriceChange}
+        />
+      </Col>
       <Col md={9}>
-        <>
-          <Row className="justify-content-between mb-3">
-            <Col md={6} sm={6}>
-              <h2>{capitalizeFirstLetter(currentCategory)}</h2>
+        <Sort
+          currentCategory={currentCategory}
+          sortProducts={sortProducts}
+          handleSortingOptionChange={handleSortingOptionChange}
+        />
+        <Row>
+          {filteredProducts.map((product) => (
+            <Col sm={6} lg={4} className="mb-3" key={product._id}>
+              <Product product={product}></Product>
             </Col>
-            <Col md={3} sm={3} className="justify-content-end">
-              <SortingOption
-                sortProducts={sortProducts}
-                handleSortingOptionChange={handleSortingOptionChange}
-              />
-            </Col>
-          </Row>
-          <Row>
-            {sortedProducts.map((product) => (
-              <Col sm={6} lg={4} className="mb-3" key={product._id}>
-                <Product product={product}></Product>
-              </Col>
-            ))}
-          </Row>
-        </>
+          ))}
+        </Row>
       </Col>
     </Row>
   );
