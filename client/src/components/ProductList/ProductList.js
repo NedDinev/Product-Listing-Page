@@ -10,17 +10,20 @@ import Filter from "../Filter/Filter";
 
 export default function ProductList(props) {
   const [sortingOption, setSortingOption] = useState("Default");
-  const [materialFilters, setMaterialFilters] = useState({
-    Gold: false,
-    Silver: false,
-    Diamond: false,
-    RoseGold: false,
-  });
 
   const { currentCategory, data } = props;
   const productsInCurrentCategory = data.products.filter(
     (product) => product.category === currentCategory
   );
+
+  const materials = [
+    ...new Set(productsInCurrentCategory.map((product) => product.material)),
+  ];
+  const materialsCheckboxes = Object.fromEntries(
+    materials.map((name) => [name, false])
+  );
+
+  const [materialFilters, setMaterialFilters] = useState(materialsCheckboxes);
 
   const highestProductPrice = findHighestProductPrice(
     productsInCurrentCategory
@@ -83,6 +86,7 @@ export default function ProductList(props) {
     <Row>
       <Col md={3}>
         <Filter
+          materials={materials}
           materialFilters={materialFilters}
           handleMaterialFilterChange={handleMaterialFilterChange}
           lowestProductPrice={lowestProductPrice}
@@ -98,6 +102,7 @@ export default function ProductList(props) {
           handleSortingOptionChange={handleSortingOptionChange}
         />
         <Row>
+          {!filteredProducts.length && <h4>No products found</h4>}
           {filteredProducts.map((product) => (
             <Col sm={6} lg={4} className="mb-3" key={product._id}>
               <Product product={product}></Product>

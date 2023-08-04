@@ -28,7 +28,9 @@ export default function Product(props) {
         )}
 
         {isOutOfStock ? (
-          <Button onClick={() => addToCartHandler(product)}>Add to cart</Button>
+          <Button variant="dark" onClick={() => addToCartHandler(product)}>
+            Add to cart
+          </Button>
         ) : (
           <Button variant="light" disabled>
             Out of stock
