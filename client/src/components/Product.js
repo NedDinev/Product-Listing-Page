@@ -1,12 +1,22 @@
-import { Button, Card } from "react-bootstrap";
+import { useState } from "react";
+import { Alert, Button, Card, Modal } from "react-bootstrap";
 import Rating from "./Rating";
 
 export default function Product(props) {
   const { product } = props;
 
-  const isOutOfStock = product.quantity > 0;
+  const [show, setShow] = useState(false);
 
-  const addToCartHandler = (product) => {};
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const addToCartHandler = (product) => {
+    handleShow();
+
+    setTimeout(() => {
+      handleClose();
+    }, 2000);
+  };
 
   return (
     <Card>
@@ -27,15 +37,13 @@ export default function Product(props) {
           <Card.Text className="mb-3">${product.price}</Card.Text>
         )}
 
-        {isOutOfStock ? (
-          <Button variant="dark" onClick={() => addToCartHandler(product)}>
-            Add to cart
-          </Button>
-        ) : (
-          <Button variant="light" disabled>
-            Out of stock
-          </Button>
-        )}
+        <Button variant="dark" onClick={() => addToCartHandler(product)}>
+          Add to cart
+        </Button>
+
+        <Modal show={show} onHide={handleClose} animation={true}>
+          <Modal.Body>Product added to cart! 🛒</Modal.Body>
+        </Modal>
       </Card.Body>
     </Card>
   );
