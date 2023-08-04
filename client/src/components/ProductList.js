@@ -1,17 +1,30 @@
 import React, { useEffect, useState } from "react";
-import { Col, Row } from "react-bootstrap";
-import Product from "../Product/Product";
+import { Col, Row, Button } from "react-bootstrap";
+import Product from "./Product";
 import {
+  filterProducts,
   findHighestProductPrice,
   findLowestProductPrice,
-} from "../../Utils/productsUtils";
-import Sort from "../Sort/Sort";
-import Filter from "../Filter/Filter";
+  sortProducts,
+} from "../Utils/productsUtils";
+import Sort from "./Sort";
+import Filter from "./Filter";
 
 export default function ProductList(props) {
   const [sortingOption, setSortingOption] = useState("Default");
-
   const { currentCategory, data } = props;
+
+  useEffect(() => {
+    // Reset the displayed products count when the currentCategory changes
+    setDisplayedProductsCount(6);
+
+    // Reset the price filter when the currentCategory changes
+    setMaxPrice(highestProductPrice);
+
+    // Reset the material filter when the currentCategory changes
+    setMaterialFilters(materialsCheckboxes);
+  }, [currentCategory]);
+
   const productsInCurrentCategory = data.products.filter(
     (product) => product.category === currentCategory
   );
@@ -24,7 +37,6 @@ export default function ProductList(props) {
   );
 
   const [materialFilters, setMaterialFilters] = useState(materialsCheckboxes);
-
   const highestProductPrice = findHighestProductPrice(
     productsInCurrentCategory
   );
@@ -47,40 +59,22 @@ export default function ProductList(props) {
     setMaxPrice(parseInt(newValue, 10));
   };
 
-  const sortProducts = (products) => {
-    switch (sortingOption) {
-      case "Alphabetical a-z":
-        return [...products].sort((a, b) => a.name.localeCompare(b.name));
-      case "Alphabetical z-a":
-        return [...products].sort((a, b) => b.name.localeCompare(a.name));
-      case "Price ascending":
-        return [...products].sort((a, b) => a.price - b.price);
-      case "Price descending":
-        return [...products].sort((a, b) => b.price - a.price);
-      default:
-        // If the sorting option is "Default", return the products as they are (unsorted)
-        return products;
-    }
+  const [displayedProductsCount, setDisplayedProductsCount] = useState(6); // Show 6 products
+
+  const handleLoadMore = () => {
+    setDisplayedProductsCount((prevCount) => prevCount + 6); // Load 6 more products on each click 
   };
 
-  const filterProducts = (products) => {
-    return products.filter((product) => {
-      const isMaterialMatch =
-        materialFilters[product.material] || // If any material checkbox is selected
-        Object.values(materialFilters).every((value) => !value); // If no material checkbox is selected
+  const sortedProducts = sortProducts(productsInCurrentCategory, sortingOption);
+  const filteredProducts = filterProducts(
+    sortedProducts,
+    materialFilters,
+    maxPrice
+  );
 
-      const isPriceInRange = product.price <= maxPrice;
+  const productsToShow = filteredProducts.slice(0, displayedProductsCount);
 
-      return isMaterialMatch && isPriceInRange;
-    });
-  };
-
-  useEffect(() => {
-    setMaxPrice(highestProductPrice);
-  }, [currentCategory, highestProductPrice]);
-
-  const sortedProducts = sortProducts(productsInCurrentCategory);
-  const filteredProducts = filterProducts(sortedProducts);
+  const hasMoreProducts = displayedProductsCount < filteredProducts.length;
 
   return (
     <Row>
@@ -102,13 +96,22 @@ export default function ProductList(props) {
           handleSortingOptionChange={handleSortingOptionChange}
         />
         <Row>
-          {!filteredProducts.length && <h4>No products found</h4>}
-          {filteredProducts.map((product) => (
+          {!productsToShow.length && <h4>No products found</h4>}
+          {productsToShow.map((product) => (
             <Col sm={6} lg={4} className="mb-3" key={product._id}>
               <Product product={product}></Product>
             </Col>
           ))}
         </Row>
+        {hasMoreProducts && (
+          <Button
+            variant="primary"
+            className="d-flex m-auto mt-4"
+            onClick={handleLoadMore}
+          >
+            Load More
+          </Button>
+        )}
       </Col>
     </Row>
   );

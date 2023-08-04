@@ -28,11 +28,34 @@ main {
   color: #ff0058;
 }
 
+/* Custom links color */
+.nav-link {
+  --bs-nav-link-color: #d09b4a;
+}
+
 .rating span {
   color: #d09b4a;
 }
 
-/* Switch checkbox */
+/* Custom "load more" button */
+#root > div > main > div > div > div.col-md-9 > button {
+  --bs-btn-color: #000;
+  --bs-btn-bg: #d09b4a;
+  --bs-btn-border-color: #d09b4a;
+  --bs-btn-hover-color: #000;
+  --bs-btn-hover-bg: #caa66e;
+  --bs-btn-hover-border-color: #d3aa6c;
+  --bs-btn-focus-shadow-rgb: 49, 132, 253;
+  --bs-btn-active-color: #000;
+  --bs-btn-active-bg: #d09b4a;
+  --bs-btn-active-border-color: #d09b4a;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #d09b4a;
+  --bs-btn-disabled-border-color: #d09b4a;
+}
+
+/* Custom Switch checkbox */
 
 .form-check-input {
   background-image: url("data:image/svg+xml,<svg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%27-4 -4 8 8%27><circle r=%273%27 fill=%27%23666%27/></svg>") !important;
@@ -49,7 +72,7 @@ main {
   box-shadow: none !important;
 }
 
-/* Slider */
+/* Custom Slider */
 
 input[type="range"]::-webkit-slider-thumb {
   background: #d09b4a;

@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-import ProductList from "../ProductList/ProductList";
-import { data } from "../../data";
+import ProductList from "./ProductList";
+import { data } from "../data";
 
 export default function CategoriesRouter() {
   const categories = [

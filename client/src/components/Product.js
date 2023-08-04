@@ -1,5 +1,5 @@
 import { Button, Card } from "react-bootstrap";
-import Rating from "../Rating/Rating";
+import Rating from "./Rating";
 
 export default function Product(props) {
   const { product } = props;

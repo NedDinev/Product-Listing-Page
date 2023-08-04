@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import SortingOption from "../SortingOptions/SortingOption";
-import { capitalizeFirstLetter } from "../../Utils/textFormat";
+import SortingOption from "./SortingOption";
+import { capitalizeFirstLetter } from "../Utils/textFormat";
 
 export default function Sort({
   currentCategory,

@@ -1,8 +1,9 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Container } from "react-bootstrap";
-import NavigationBar from "./components/NavigationBar/NavigationBar";
-import CategoriesRouter from "./components/CategoriesRouter/CategoriesRouter";
+import NavigationBar from "./components/NavigationBar";
+import CategoriesRouter from "./components/CategoriesRouter";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
           <CategoriesRouter />
         </Container>
       </main>
-      <footer></footer>
+      <Footer />
     </div>
   );
 }

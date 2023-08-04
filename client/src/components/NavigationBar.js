@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Container, Nav, Navbar } from "react-bootstrap";
-import { data } from "../../data";
+import { data } from "../data";
 
 export default function NavigationBar() {
   const categories = [
