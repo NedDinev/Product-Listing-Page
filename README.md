@@ -2,6 +2,8 @@
 
 Welcome to the documentation for the Product Listing Page. This project is a simple web application that showcases a product listing page, where users can browse and view various products and categories. The application is built using React, and it utilizes React components, hooks, and routing to create a seamless user experience.
 
+### The project is hosted here: [LINK](https://product-listing-page-delta.vercel.app/category/earrings)
+
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
