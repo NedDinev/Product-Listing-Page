@@ -7,8 +7,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-main {
-  flex: 1;
+.layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.layout main {
+  flex-grow: 1;
 }
 
 .card-title {
