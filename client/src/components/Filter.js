@@ -21,7 +21,7 @@ export default function Filter({
             type="switch"
             label={material}
             name={material}
-            checked={materialFilters[material]}
+            checked={!!materialFilters[material]}
             onChange={handleMaterialFilterChange}
           />
         ))}
